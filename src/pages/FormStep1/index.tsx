@@ -7,6 +7,7 @@ import {
 } from "../../reducers/form-reducer";
 import { Theme } from "../../components/Theme";
 import { ChangeEvent, useEffect } from "react";
+import { withChangeValue } from "../../utils";
 
 export const FormStep1 = () => {
   const history = useHistory();
@@ -24,9 +25,9 @@ export const FormStep1 = () => {
     }
   };
 
-  const handleNameChange = (event: ChangeEvent<HTMLInputElement>) => {
-    dispatch(pessoalInfoUpdated(event.target.value));
-  };
+  const handleNameChange = withChangeValue((name) => {
+    dispatch(pessoalInfoUpdated(name));
+  });
 
   return (
     <Theme>

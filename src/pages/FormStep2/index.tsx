@@ -19,10 +19,6 @@ export const FormStep2 = () => {
     }
   };
 
-  const setLevel = (level: number) => {
-    dispatch(professionalInfoUpdated(level as 0 | 1));
-  };
-
   return (
     <Theme>
       <C.Container>
@@ -40,7 +36,7 @@ export const FormStep2 = () => {
           description="Comecei a programar há menos de 2 anos"
           icon="🥳"
           selected={state.level === 0}
-          onClick={() => setLevel(0)}
+          onClick={() => dispatch(professionalInfoUpdated(0))}
         />
 
         <SelectOption
@@ -48,7 +44,7 @@ export const FormStep2 = () => {
           description="Já programo há 2 anos ou mais"
           icon="😎"
           selected={state.level === 1}
-          onClick={() => setLevel(1)}
+          onClick={() => dispatch(professionalInfoUpdated(1))}
         />
 
         <Link to="/" className="backButton">
